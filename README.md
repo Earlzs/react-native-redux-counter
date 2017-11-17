@@ -1,5 +1,5 @@
 
-#redux个人理解
+#r  edux个人理解
  >    Flux就像眼镜,你会知道你在什么时候需要它  
 
 使用redux的目的是方便我们理清各个组件的state状态,我们在组件中使用props传递数据传来传去也容易搞混,这个时候,就是redux大显神威的时候,
@@ -16,22 +16,22 @@
  ```
 
 
-#redux中几个重要的概念
+# redux中几个重要的概念
 
-####1. Action 
+#### 1. Action 
        中文译动作行为,行动.像它的名字一样,我们在redux体系中修改一个状态必须先发出action ,action是行为,一个行为可以分为不同的几种类型,比如打人,打别人左脸是一种type ,打右脸也是一种type,当然选择不打也是这种行为的一种体现方式.我们选择的type就会影响到这个人受挨打后的状态,那也就是他可能第二天左脸肿了,或右脸.
 所以这里一种打人行为的几种处理方式,会造成不同的表现结果,也就是我们所谓的 ui对应的各种展现方式.
 
 ![计数](http://upload-images.jianshu.io/upload_images/4985985-a58fad88cb896f2f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 我在这里是定义了三种关于计数的type 
 
-####2. dispatch 
+#### 2. dispatch 
 说完了行为,该说调度了,我们定义了各种各样的行为,但是之前也说过redux是单向数据流,想要触发action我们需要使用我们触发了一个计数的增加操作dispath(increase)
 ![增加](http://upload-images.jianshu.io/upload_images/4985985-ec545f2f3d7d2b98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 
-####3.  connect
+#### 3.  connect
 ```
 import { connect } from 'react-redux'
 
@@ -47,7 +47,7 @@ const VisibleTodoList = connect(
  reducers函数处理完了,如何告诉ui呢这里connect就发挥上用场了
 + mapDispatchToProps是connect函数的第二个参数，用来建立 UI 组件的参数到store.dispatch方法的映射。也就是说，它定义了哪些用户的操作应该当作 Action，传给 Store。它可以是一个函数，也可以是一个对象。
 
-####4. reducers
+#### 4. reducers
      dispath 将action派发到reducers中我们根据派发过来的actions.type来具体确定使用什么业务逻辑来改变一些数据,致使ui发生改变,如图,我们可以自定义state的初始状态
 ![image.png](http://upload-images.jianshu.io/upload_images/4985985-f440cedc079d52ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 **顺带插一嘴**
@@ -55,7 +55,7 @@ combineReducers
 我们呢在实际项目中,不可能只有counter这一个reducers处理函数,肯定会有非常多,那么 combineReducers 就是用来管理这一堆reducers的
 ![将counter引入进来,组织好后统一暴露出去](http://upload-images.jianshu.io/upload_images/4985985-29738a8145bbab34.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-####5. store
+#### 5. store
  说了半天,store哪里去了,刚才有没有好奇reducers处理完成后,store如何更新的?应该这么问reducers处理函数直接影响了新的视图,但是好像并没有看到他们在哪里关联?看完下面就明白了
 ![store](http://upload-images.jianshu.io/upload_images/4985985-73658aa970dcea32.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
